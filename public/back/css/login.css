@@ -2,15 +2,156 @@
   margin: 0;
   padding: 0;
 }
+ a:link,
+ a:visited,
+ a:hover,
+ a:active{
+ text-decoration: none;
+ } 
+ li{
+   list-style: none;
+ }
+
+ 
 
 .a-body{
 
  background: #222D32;
 }
+ 
+.nav{
+  margin-top: 150px;
+}
+
 .panel .panel-title{
   height: 40px;
   line-height: 40px;
   font-size: 20px;
   text-align: center;
-
+  
 }
+ 
+ /* 侧边栏样式 */
+
+.banner{
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 180px;
+   height: 100%;
+   z-index: 222;
+   background: #222D32;  
+   transition: all 1s;
+}
+.banner.hidemenu{
+   left: -180px;
+ }   
+
+ .b-top a{
+   width: 100%;
+   height: 50px;
+   font-size: 22px;
+   line-height: 50px;
+   text-align: center;
+   color: #fff;
+   display: block;
+   background: #337ab7;
+   margin: 0 auto;
+ }
+
+ .b-img{
+   width: 180px;
+   height: 180px;
+   padding-top: 30px;
+   text-align: center;
+ }
+ .b-img img{
+   width: 80px;
+   height: 80px;
+   border-radius: 50%;
+
+ }
+
+  .b-img p{
+    height: 40px;
+    font-size: 18px;
+    line-height: 40px;
+    color: #fff;
+  }
+
+
+
+  .b-guanli a{
+     display: block;
+     height: 40px;
+     width: 100%;
+     line-height: 40px;
+     font-size: 16px;
+     padding-left: 40px;
+      color: #fff;
+      border-left:3px solid transparent;  
+  }
+  .b-guanli a.current{
+    background: #117117;
+    border-left:3px solid palegreen;
+  }
+   
+
+  .b-one{
+    padding-left: 20px;
+  }
+  /* 右侧边样式 */
+  .t-banner{
+
+    height:2000px;
+    width: 100%;
+    padding-left: 180px;
+    padding-top:50px;
+    background:pink;
+    transition: all 1s,
+  }
+  .t-banner.hidemenu{
+    left: -180px;
+  }    
+ .l-banner{
+    position: fixed;
+    top: 0;
+    left: 0;
+   width: 100%;
+   height: 50px;
+   background: #3C8DBC;
+   padding-left: 180px;
+   text-align: center;
+   transition: all 1s;
+  }
+  .t-banner.hidemenu{
+    left: -180px;
+  }    
+ .l-banner a{
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    line-height: 50px;
+    color: #fff;
+
+ }
+   /* 路径导航 */
+  .lujin{
+     height: 80px;
+     width: 100%;
+     padding-top: 20px;
+     /* background: #337ab7;  */
+
+  }
+   
+     ol li:nth-child(2) a{
+   
+    color: #ccc;
+
+  }
+
+  .modal P{
+   height: 50px;
+   line-height: 50px;
+  color: red;
+  }

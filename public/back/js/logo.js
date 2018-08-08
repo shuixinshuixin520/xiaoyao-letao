@@ -16,47 +16,7 @@ $(function() {
   // 检验插件初始化
   $('#form').bootstrapValidator({
 
-    // 配置图标
-  //   feedbackIcons: {
-  //     valid: 'glyphicon glyphicon-heart',     // 校验成功
-  //     invalid: 'glyphicon glyphicon-remove',  // 校验失败
-  //     validating: 'glyphicon glyphicon-refresh'  // 校验中
-  //   },
-
-
-  // //   // 配置字段 (不要忘记给input加name)
-  //   fields: {
-  //     username: {
-  //       // 校验规则
-  //       validators: {
-  //         // 非空校验
-  //         notEmpty: {
-  //           // 配置提示信息
-  //           message: "用户名不能为空"
-  //         },
-  //         // 长度校验
-  //         stringLength: {
-  //           min: 2,
-  //           max: 6,
-  //           message: "用户名长度必须是2-6位"
-  //         }
-  //       }
-  //     },
-  //     password: {
-  //       validators: {
-  //         // 非空校验
-  //         notEmpty: {
-  //           message: "密码不能为空"
-  //         },
-  //         // 长度校验
-  //         stringLength: {
-  //           min: 6,
-  //           max: 12,
-  //           message: "密码长度必须是6-12位"
-  //         }
-  //       }
-  //     }
-  //   }
+ 
   feedbackIcons: {
     valid: 'glyphicon glyphicon-ok',
     invalid: 'glyphicon glyphicon-remove',
@@ -70,8 +30,10 @@ $(function() {
       username:{
          validators:{
           notEmpty:{
-            message:'用户名不能为空'
+            message:'用户名不能为空',
+          
           },
+       
           // 长度校验
           stringLength:{
             min:2,
@@ -79,8 +41,11 @@ $(function() {
             message:'用户名长度必须2到6位之间'
 
           },
-      
+          callback:{
+            message:'用户名不存在',
+          }
 
+         
          }
 
       }, 
@@ -95,33 +60,54 @@ $(function() {
           max:12,
           message:"用户密码必须6到16位"
 
-         }
-
-
-
+         },
+         callback:{
+          message:'密码错误',
         }
 
-
-
+        }
       }   
-
-  
-
-
      }
-
-
-
-
-
-
-
-
-
 
   });
 
+  // 组织表单默认行为;
+  
+  $('#form').on("success.form.bv",function(e){
+    e.preventDefault();
    
+    $.ajax({
+    type:"POST",
+    url :"/employee/employeeLogin",
+    data:$('#form').serialize(),
+    dataType:"json",
+    success:function(info){
+     if(info.error===1000){
+     
+     $('#form').data('bootstrapValidator').updateStatus('username','INVALID',"callback")     
+     }
+     if(info.success){
+      location.href="index.html";
+     }
+     if(info.error===1001){
+      // 参数1: 字段名称
+          // 参数2: 校验状态, VALID成功的, INVALID失败的, NOT_VALIDATED未校验的
+          // 参数3: 指定校验规则, 可以设置提示信息
+          $('#form').data("bootstrapValidator").updateStatus("password", "INVALID", "callback")
+     }
+    }
+
+  })
+ }) 
+    // 点击重置按钮,进行样式重置
+   $('[type="reset"]').click(function(){
+   
+   $("#form").data('bootstrapValidator').resetForm();
+   })
+  
+
+})
 
 
-});
+
+
