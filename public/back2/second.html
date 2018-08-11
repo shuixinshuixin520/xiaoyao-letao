@@ -150,8 +150,7 @@
             <label class="btn btn-default" for="fileupload">上传图片</label>
             <!-- 指定 name 将来后台用于接收文件 -->
             <!-- 指定 data-url, 指定后台接口地址 -->
-            <input type="file" id="fileupload" name="pic1" data-url="/category/addSecondCategoryPic" 
-            style="display: none;" >
+            <input type="file" id="fileupload" name="pic1" data-url="/category/addSecondCategoryPic" style="display: none;" >
           </div>
           <div class="form-group" id="imgBox">
             <img src="./images/none.png" width="100" alt="">
@@ -171,7 +170,7 @@
 <script type="text/html" id="secondTpl">
   {{ each rows v i }}
     <tr>
-      <td>{{ i+1 + (page-1)*size }}</td>
+      <td>{{ i+1 + (page-1) * size }}</td>
       <td>{{ v.categoryName }}</td>
       <td>{{ v.brandName }}</td>
       <td><img src="{{ v.brandLogo }}" height="50" alt=""></td>

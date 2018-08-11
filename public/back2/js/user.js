@@ -88,8 +88,7 @@ $(function() {
         console.log( info )
         if ( info.success ) {
           // 1. 关闭模态框
-          // $('#userModal').modal("hide");
-          $('#userModal').hide();
+          $('#userModal').modal("hide");
           // 2. 页面重新渲染
           render();
         }

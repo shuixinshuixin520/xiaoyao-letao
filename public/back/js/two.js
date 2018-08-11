@@ -84,8 +84,7 @@ $(function(){
   
     // 将隐藏教研状,设置成教研状态 updateStatus(字段名,教研状态,教研状态)
    
-   $('#form').data("bootstrapValidator").updateStatus("categoryId", "VALID")   
-
+   $('#form').data("bootstrapValidator").updateStatus("categoryId", "VALID")
    });
     
   //  进行文件上传文件初始化;
@@ -142,7 +141,6 @@ $(function(){
   });
    
   $("#form").on("success.form.bv", function( e ) {
-      alert(111)
       e.preventDefault();
 
     //  通过ajax提交;

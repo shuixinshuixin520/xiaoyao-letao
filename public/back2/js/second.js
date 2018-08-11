@@ -57,7 +57,7 @@ $(function() {
       },
       dataType: "json",
       success: function( info ) {
-        // console.log( info );
+        console.log( info );
         // 结合模板和数据, 进行渲染
         var htmlStr = template("dropdownTpl", info );
         $('.dropdown-menu').html( htmlStr );
@@ -79,7 +79,7 @@ $(function() {
     var id = $(this).data("id");
     // 设置给 input
     $('[name="categoryId"]').val( id );
-    
+
     // 将隐藏域校验状态, 设置成校验成功状态 updateStatus
     // updateStatus(字段名, 校验状态, 校验规则)
     $('#form').data("bootstrapValidator").updateStatus("categoryId", "VALID");
@@ -91,8 +91,7 @@ $(function() {
    * 2. 准备结构, name data-url
    * 3. 进行文件上传初始化, 配置 done 回调函数
    * */
-
-  // 4. 进行文件上传初始化
+  // 4. 进行文件上传初始化fileupload"
   $('#fileupload').fileupload({
     // 配置返回的数据格式
     dataType: "json",
@@ -110,7 +109,6 @@ $(function() {
       $('#form').data("bootstrapValidator").updateStatus("brandLogo", "VALID");
     }
   });
-
 
 
   // 5. 实现表单校验
@@ -156,7 +154,6 @@ $(function() {
   });
 
 
-
   // 6. 注册表单校验成功事件, 阻止默认提交, 通过 ajax 进行提交
   $("#form").on("success.form.bv", function( e ) {
     e.preventDefault();
@@ -168,8 +165,8 @@ $(function() {
       data: $('#form').serialize(),
       dataType: "json",
       success: function( info ) {
-        // console.log( info );
-        if ( info.success ){
+        console.log( info );
+        if ( info.success ) {
           // 关闭模态框
           $('#addModal').modal("hide");
           // 重新渲染第一页页面
@@ -186,7 +183,6 @@ $(function() {
     })
 
   })
-
 
 
 });
