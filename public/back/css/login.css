@@ -107,7 +107,7 @@
     width: 100%;
     padding-left: 180px;
     padding-top:50px;
-    background:pink;
+    /* background:pink; */
     transition: all 1s,
   }
   .t-banner.hidemenu{
@@ -155,3 +155,20 @@
    line-height: 50px;
   color: red;
   }
+  .r-echarts,
+  .l-echarts{
+  width: 48%;
+  height: 400px;
+  
+  /* background: #117117; */
+  }
+  /* 点击按钮top */
+  .btn-tp{
+    margin-bottom: 20px;
+  }
+  .table.table-bordered th,
+  .table.table-bordered td {
+  text-align: center;
+  /* 表格垂直居中 */
+  vertical-align: middle;
+}
